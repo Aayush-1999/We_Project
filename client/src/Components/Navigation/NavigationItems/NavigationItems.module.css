@@ -1,0 +1,27 @@
+.NavigationItems{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    height: 100%;
+    margin-top: 12px;
+}
+.signIn{
+        text-decoration: none;
+        padding-top: 15px;
+        padding-left: 25px;
+        padding-right: 25px;
+        background-color: #512DA8;
+        border: none;
+        color: white;
+        font-size: 0.875rem;
+        letter-spacing: 0;
+        height: 30px;
+        margin: 0;
+        margin-left: 12px;
+        box-shadow: none;
+        margin-bottom: 5px;
+}
+.signIn:hover{
+    background-color: blueviolet;
+}
