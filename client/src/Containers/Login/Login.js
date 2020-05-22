@@ -36,6 +36,9 @@ class Login extends Component{
     loginSubmitHandler = ()=>{
         if (this.validator.allValid()) {
             this.props.onLoginSubmit(this.state.loginData.email,this.state.loginData.password);
+            if(this.props.isAuth){
+                this.props.history.push("/books")
+            }
         } else {
           this.validator.showMessages();    
       }
