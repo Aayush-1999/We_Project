@@ -1,11 +1,7 @@
 const mongoose   = require("mongoose");
 
 const UserSchema=new mongoose.Schema({
-    firstName:{
-        type:String,
-        default:null
-    },
-    lastName:{
+    name:{
         type:String,
         default:null
     },
@@ -15,12 +11,10 @@ const UserSchema=new mongoose.Schema({
         required:true
         },
     password:String,
-    resetPasswordToken:String,
-    resetPasswordExpires:Date,
-    doctor:[
+    books:[
         {
             type:mongoose.Schema.Types.ObjectId,
-            ref:"Doctor"
+            ref:"Book"
         }
     ]
 })
