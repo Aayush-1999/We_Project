@@ -8,9 +8,9 @@ const express               = require("express"),
 require("dotenv").config();
 
 //ROUTES
-const indexRoute = require("./routes/index");
-    //   bookingRoute = require("./routes/booking"),
-    //   userRoute  = require("./routes/user");
+const indexRoute = require("./routes/index"),
+      bookRoute = require("./routes/book"),
+      orderRoute  = require("./routes/orders");
 
 mongoose.connect(process.env.DATABASEURL,{ useUnifiedTopology: true ,useNewUrlParser:true});
 mongoose.set("useFindAndModify",false);
@@ -20,8 +20,8 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
-// app.use("/user",userRoute);
-// app.use("/book",bookingRoute);
+app.use("/orders",orderRoute);
+app.use("/book",bookRoute);
 app.use("/",indexRoute);    
 
 if(process.env.NODE_ENV==='production'){
