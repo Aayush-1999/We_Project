@@ -21,20 +21,12 @@ class App extends Component {
         <Route path='/' exact component={Home} />
         <Route path='/login' exact component={Login} />
         <Route path='/register' exact component={Register} />
+        <Route path='/books' exact component={Books} />
+        <Route path='/orders' exact component={Orders} />  
         <Redirect to="/" />
       </Switch>
     )
 
-    if(this.props.isAuth){
-      routes=(
-        <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/books' exact component={Books} />
-          <Route path='/orders' exact component={Orders} />
-          <Redirect to="/" />
-        </Switch>
-      )
-    }
     return (
       <Layout auth={this.props.isAuth}>
         {routes}
