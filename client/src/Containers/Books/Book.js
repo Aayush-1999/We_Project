@@ -49,21 +49,26 @@ class Books extends Component{
     }
     
     addToCardHandler=(book,index)=>{
-        axios.post("/book",{
-            id:this.props.userId,
-            book:book
-        })
-        .then(response=>{
-            console.log(response)
-            if(response.status===200){
-                let newOrdered=this.state.isOrdered
-                newOrdered[index]=true
-                this.setState({isOrdered:newOrdered})
-            }
-        })
-        .catch(err=>{
-            console.log(err)
-        })
+        if(!this.props.isAuth){
+            this.props.history.push("/login")
+        }
+        else{
+            axios.post("/book",{
+                id:this.props.userId,
+                book:book
+            })
+            .then(response=>{
+                console.log(response)
+                if(response.status===200){
+                    let newOrdered=this.state.isOrdered
+                    newOrdered[index]=true
+                    this.setState({isOrdered:newOrdered})
+                }
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+        }
     }
 
     render(){
@@ -91,6 +96,7 @@ class Books extends Component{
 
 const mapStateToProps=state=>{
     return{
+        isAuth:state.auth.token!=null,
         userId:state.auth.userId
     }
 }
