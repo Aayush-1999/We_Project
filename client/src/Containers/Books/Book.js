@@ -74,6 +74,7 @@ class Books extends Component{
                         <div className={classes.cardContainer} key={index}>
                             <BookCard 
                                 key={index}
+                                imageUrl={book.url}
                                 price={book.price} 
                                 ordered={this.state.isOrdered[index]} 
                                 title={book.title} 

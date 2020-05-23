@@ -6,7 +6,7 @@ const BookCard=(props)=>{
         <div className={classes.card}>
             <div className={classes.topSection}>
                 <img className={classes.imageContainer} 
-                src="https://image.freepik.com/free-photo/feather-texture-background-with-orange-light_32525-101.jpg" />
+                src={props.imageUrl} />
                 <div className={classes.price}>Rs. {props.price}</div>
             </div>
             <div className={classes.productInfo}>
