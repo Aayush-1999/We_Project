@@ -16,9 +16,10 @@ class Register extends Component{
 
     state = {
         registerData:{     
-            name:null, 
-            email:null,
-            password:null     
+            name:"", 
+            email:"",
+            password:"",
+            confirmPassword:""     
         },
         errors:{ 
             name:"",  
@@ -97,7 +98,8 @@ class Register extends Component{
                     {}
                     {this.validator.message('password', this.state.registerData.password, 'required|min:8')}
 
-                    <input className={classes.input} value={this.state.registerData.password}  
+                    <input className={classes.input} value={this.state.registerData.confirmPassword}
+                    onChange = {(event) => this.changeHandler(event, 'confirmPassword')}  
                     placeholder="Confirm Password" type="password" />
                     <button className={classes.registerBtn}  
                     onClick={this.registerSubmitHandler}>Register</button>
