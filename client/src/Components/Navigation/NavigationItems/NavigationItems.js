@@ -4,6 +4,7 @@ import NavigationItem from './NavigationItem/NavigationItem'
 import { Link} from "react-router-dom"
 import { useDispatch } from 'react-redux'
 import * as actions from '../../../Store/Actions/Index'
+import Auxiliary from '../../../HOC/Auxiliary/Auxiliary'
 
 const NavigationItems = (props) => {
     const dispatch=useDispatch()
@@ -14,8 +15,10 @@ const NavigationItems = (props) => {
             <NavigationItem to={"/books"}>Get Books</NavigationItem>
             <NavigationItem to={"/about"}>About Us</NavigationItem>
             {props.isAuth ?
-                (<Link to = {"/orders"}>My Orders</Link>
-                <Link to = {"/"} onClick={()=>dispatch(actions.logout())} className={classes.signIn}>Logout</Link>)
+                <Auxiliary>          
+                    <NavigationItem to = {"/orders"}>My Orders</NavigationItem>
+                    <Link to = {"/"} onClick={()=>dispatch(actions.logout())} className={classes.signIn}>Logout</Link>
+                </Auxiliary>
                 :<Link to = {"/login"} className={classes.signIn}>Login/SignUp</Link>
             }        
         </ul>
